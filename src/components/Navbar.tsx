@@ -20,7 +20,7 @@ const Navbar: React.FC = () => {
         <Link to="/" className="flex items-center space-x-2">
           <Search className="h-6 w-6 text-indigo-600" />
           <span className="text-xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
-            SearchGen
+            WebDetective
           </span>
         </Link>
 

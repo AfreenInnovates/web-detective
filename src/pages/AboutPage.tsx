@@ -33,7 +33,7 @@ const AboutPage: React.FC = () => {
           variants={itemVariants}
           className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent"
         >
-          About SearchGen
+          About WebDetective
         </motion.h1>
         <motion.p
           variants={itemVariants}
@@ -52,7 +52,7 @@ const AboutPage: React.FC = () => {
         <motion.div variants={itemVariants} className="bg-white p-8 rounded-xl shadow-sm">
           <h2 className="text-2xl font-bold mb-4 text-indigo-600">Our Story</h2>
           <p className="text-gray-700 mb-4">
-            SearchGen was born from a simple observation: most websites have inadequate search functionality, leading to frustrated users and lost opportunities.
+            WebDetective was born from a simple observation: most websites have inadequate search functionality, leading to frustrated users and lost opportunities.
           </p>
           <p className="text-gray-700 mb-4">
             Our team of search experts and AI engineers came together to create a solution that could be implemented in minutes, not months, without requiring specialized knowledge.
@@ -127,7 +127,7 @@ const AboutPage: React.FC = () => {
           Ready to transform your website search?
         </motion.h2>
         <motion.p variants={itemVariants} className="text-xl mb-8 max-w-2xl mx-auto">
-          Join thousands of organizations that have already enhanced their user experience with SearchGen.
+          Join thousands of organizations that have already enhanced their user experience with WebDetective.
         </motion.p>
         <motion.a
           variants={itemVariants}

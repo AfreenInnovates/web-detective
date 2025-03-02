@@ -8,18 +8,51 @@ const LandingPage: React.FC = () => {
   const [isError, setIsError] = useState(false);
   const navigate = useNavigate();
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  // const handleSubmit = (e: React.FormEvent) => {
+  //   e.preventDefault();
     
-    // Simple URL validation
-    if (!url || !url.match(/^(https?:\/\/)?([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?$/)) {
-      setIsError(true);
-      return;
+  //   // Simple URL validation
+  //   if (!url || !url.match(/^(https?:\/\/)?([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?$/)) {
+  //     setIsError(true);
+  //     return;
+  //   }
+    
+  //   setIsError(false);
+  //   navigate('/processing', { state: { url } });
+  // };
+
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+
+  if (!url || !url.match(/^(https?:\/\/)?([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?$/)) {
+    setIsError(true);
+    return;
+  }
+
+  setIsError(false);
+
+  try {
+    // Send request to backend
+    const response = await fetch("http://localhost:5000/scrape", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ url }),
+    });
+
+    if (response.ok) {
+      const data = await response.json(); // Get scraped data
+      console.log("Scraping result:", data);
+
+      // Navigate to /processing and pass scraped data
+      navigate("/processing", { state: { url, result: data } });
+    } else {
+      console.error("Failed to fetch from backend");
     }
-    
-    setIsError(false);
-    navigate('/processing', { state: { url } });
-  };
+  } catch (error) {
+    console.error("Error:", error);
+  }
+};
+
 
   const features = [
     {
